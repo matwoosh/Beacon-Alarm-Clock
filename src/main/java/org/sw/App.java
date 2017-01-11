@@ -49,7 +49,7 @@ public class App extends Application {
 
         this.store = new Store<>(new State.Reducer(),
                 initialState,
-                new Logger<>("Talalarmo"),
+                new Logger<>("BeaconAlarm"),
                 persistanceController,
                 new AlarmController(this));
 

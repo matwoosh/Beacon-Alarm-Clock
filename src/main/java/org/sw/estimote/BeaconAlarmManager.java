@@ -59,4 +59,15 @@ public class BeaconAlarmManager {
         });
     }
 
+    public void stopMonitoring() {
+        beaconManager.connect(new BeaconManager.ServiceReadyCallback() {
+            @Override
+            public void onServiceReady() {
+                for (Region region : regionsToMonitor) {
+                    beaconManager.stopMonitoring(region);
+                }
+            }
+        });
+    }
+
 }

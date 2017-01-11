@@ -78,6 +78,7 @@ public class AlarmActivity extends Activity {
     }
 
     public void stopAlarm() {
+        beaconAlarmManager.startMonitoring();
         App.dispatch(new Action<>(Actions.Alarm.DISMISS));
         finish();
     }
