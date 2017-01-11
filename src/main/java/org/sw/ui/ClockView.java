@@ -1,4 +1,4 @@
-package trikita.talalarmo.ui;
+package org.sw.ui;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -10,7 +10,7 @@ import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.widget.SeekBar;
 
-import trikita.talalarmo.App;
+import org.sw.App;
 
 public class ClockView extends SeekBar {
 

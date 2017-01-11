@@ -1,12 +1,12 @@
-package trikita.talalarmo.alarm;
+package org.sw.alarm;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
 import trikita.jedux.Action;
-import trikita.talalarmo.Actions;
-import trikita.talalarmo.App;
+import org.sw.Actions;
+import org.sw.App;
 
 public class BootReceiver extends BroadcastReceiver {
     @Override

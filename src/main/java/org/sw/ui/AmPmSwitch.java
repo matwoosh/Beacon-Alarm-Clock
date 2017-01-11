@@ -1,4 +1,4 @@
-package trikita.talalarmo.ui;
+package org.sw.ui;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -7,7 +7,7 @@ import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.widget.ToggleButton;
 
-import trikita.talalarmo.App;
+import org.sw.App;
 
 public class AmPmSwitch extends ToggleButton {
 

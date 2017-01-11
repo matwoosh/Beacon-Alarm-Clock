@@ -1,4 +1,4 @@
-package trikita.talalarmo;
+package org.sw;
 
 import android.media.RingtoneManager;
 

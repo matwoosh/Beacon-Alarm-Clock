@@ -1,4 +1,4 @@
-package trikita.talalarmo.ui;
+package org.sw.ui;
 
 import trikita.anvil.Anvil;
 

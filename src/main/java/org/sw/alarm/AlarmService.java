@@ -1,4 +1,4 @@
-package trikita.talalarmo.alarm;
+package org.sw.alarm;
 
 import android.Manifest;
 import android.app.Service;
@@ -16,7 +16,7 @@ import android.os.HandlerThread;
 import android.os.IBinder;
 import android.os.Vibrator;
 
-import trikita.talalarmo.App;
+import org.sw.App;
 
 public class AlarmService extends Service {
     // Time period between two vibration events

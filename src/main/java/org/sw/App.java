@@ -1,15 +1,16 @@
-package trikita.talalarmo;
+package org.sw;
 
 import android.app.Application;
 
 import com.estimote.sdk.EstimoteSDK;
 
+import org.sw.alarm.AlarmController;
+import org.sw.alarm.PersistanceController;
+
 import trikita.anvil.Anvil;
 import trikita.jedux.Action;
 import trikita.jedux.Logger;
 import trikita.jedux.Store;
-import trikita.talalarmo.alarm.AlarmController;
-import trikita.talalarmo.alarm.PersistanceController;
 
 public class App extends Application {
 
@@ -35,7 +36,7 @@ public class App extends Application {
 
         // uncomment to enable debug-level logging
         // it's usually only a good idea when troubleshooting issues with the Estimote SDK
-        // EstimoteSDK.enableDebugLogging(true);
+         EstimoteSDK.enableDebugLogging(true);
 
 
         App.instance = this;

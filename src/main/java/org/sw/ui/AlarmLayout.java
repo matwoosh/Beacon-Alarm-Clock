@@ -1,4 +1,4 @@
-package trikita.talalarmo.ui;
+package org.sw.ui;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,14 +10,15 @@ import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 
+import org.sw.App;
+
 import static trikita.anvil.DSL.*;
 
 import trikita.anvil.Anvil;
 import trikita.jedux.Action;
-import trikita.talalarmo.Actions;
-import trikita.talalarmo.App;
-import trikita.talalarmo.MainActivity;
-import trikita.talalarmo.R;
+import org.sw.Actions;
+import org.sw.MainActivity;
+import org.sw.R;
 
 public class AlarmLayout {
     public static void view() {

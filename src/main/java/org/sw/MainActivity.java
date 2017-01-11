@@ -1,4 +1,4 @@
-package trikita.talalarmo;
+package org.sw;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -7,11 +7,12 @@ import android.os.Bundle;
 import android.view.Window;
 import android.view.WindowManager;
 
+import org.sw.ui.AlarmLayout;
+import org.sw.ui.Theme;
+
 import trikita.anvil.Anvil;
 import trikita.anvil.RenderableView;
 import trikita.promote.Promote;
-import trikita.talalarmo.ui.AlarmLayout;
-import trikita.talalarmo.ui.Theme;
 
 public class MainActivity extends Activity {
 
@@ -32,11 +33,11 @@ public class MainActivity extends Activity {
         super.onResume();
         updateTheme();
         Anvil.render();
-        Promote.after(7).days().every(7).days().rate(this);
+        /*Promote.after(7).days().every(7).days().rate(this);
         Promote.after(3).days().every(14).days().share(this,
                 Promote.FACEBOOK_TWITTER,
-                "https://github.com/trikita/talalarmo",
-                "Talalarmo: elegant open-source alarm clock");
+                "https://github.com/trikita/sw",
+                "Talalarmo: elegant open-source alarm clock");*/
     }
 
     public void openSettings() {

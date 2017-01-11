@@ -11,12 +11,12 @@ apply plugin: 'com.android.application'
 apply plugin: 'me.tatarka.retrolambda'
 
 android {
-    compileSdkVersion 'android-25'
-    buildToolsVersion '25.0.0'
+    compileSdkVersion 'android-23'
+    buildToolsVersion '23.0.0'
 
     defaultConfig {
         minSdkVersion 15
-        targetSdkVersion 25
+        targetSdkVersion 23
         versionCode 19
         versionName '3.9'
     }

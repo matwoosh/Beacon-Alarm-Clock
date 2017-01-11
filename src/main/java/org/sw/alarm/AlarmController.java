@@ -1,4 +1,4 @@
-package trikita.talalarmo.alarm;
+package org.sw.alarm;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
@@ -13,9 +13,9 @@ import java.util.Calendar;
 
 import trikita.jedux.Action;
 import trikita.jedux.Store;
-import trikita.talalarmo.Actions;
-import trikita.talalarmo.MainActivity;
-import trikita.talalarmo.State;
+import org.sw.Actions;
+import org.sw.MainActivity;
+import org.sw.State;
 
 public class AlarmController implements Store.Middleware<Action, State> {
 

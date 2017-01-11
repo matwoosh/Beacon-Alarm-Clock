@@ -1,4 +1,4 @@
-package trikita.talalarmo.alarm;
+package org.sw.alarm;
 
 import android.app.Activity;
 import android.content.Context;
@@ -12,13 +12,17 @@ import trikita.anvil.RenderableView;
 import static trikita.anvil.DSL.*;
 
 import trikita.jedux.Action;
-import trikita.talalarmo.Actions;
-import trikita.talalarmo.App;
-import trikita.talalarmo.ui.Theme;
+import org.sw.Actions;
+import org.sw.App;
+import org.sw.estimote.BeaconID;
+import org.sw.estimote.BeaconAlarmManager;
+import org.sw.ui.Theme;
 
 
 public class AlarmActivity extends Activity {
     private PowerManager.WakeLock mWakeLock;
+    private BeaconAlarmManager beaconAlarmManager;
+
 
     @Override
     protected void onCreate(Bundle b) {
@@ -45,10 +49,14 @@ public class AlarmActivity extends Activity {
                     textColor(Theme.get(App.getState().settings().theme()).accentColor);
                     textSize(dip(128));
                     backgroundColor(Theme.get(App.getState().settings().theme()).backgroundColor);
-                    onClick(v -> stopAlarm());
+                    //onClick(v -> stopAlarm()); to bylo domyslnie
                 });
             }
         });
+
+        beaconAlarmManager = new BeaconAlarmManager(this);
+        beaconAlarmManager.addBeacon(new BeaconID("B9407F30-F5F8-466E-AFF9-25556B57FE6D", 1, 1));
+        beaconAlarmManager.startMonitoring();
     }
 
     @Override
@@ -69,7 +77,7 @@ public class AlarmActivity extends Activity {
         mWakeLock.release();
     }
 
-    private void stopAlarm() {
+    public void stopAlarm() {
         App.dispatch(new Action<>(Actions.Alarm.DISMISS));
         finish();
     }

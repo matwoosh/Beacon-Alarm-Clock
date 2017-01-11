@@ -1,4 +1,4 @@
-package trikita.talalarmo.alarm;
+package org.sw.alarm;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -8,9 +8,9 @@ import com.google.gson.GsonBuilder;
 
 import trikita.jedux.Action;
 import trikita.jedux.Store;
-import trikita.talalarmo.GsonAdaptersState;
-import trikita.talalarmo.ImmutableState;
-import trikita.talalarmo.State;
+import org.sw.GsonAdaptersState;
+import org.sw.ImmutableState;
+import org.sw.State;
 
 public class PersistanceController implements Store.Middleware<Action, State> {
 

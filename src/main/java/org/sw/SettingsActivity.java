@@ -1,4 +1,4 @@
-package trikita.talalarmo;
+package org.sw;
 
 import android.Manifest;
 import android.app.Activity;
@@ -11,6 +11,8 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 
 import trikita.jedux.Action;
+import org.sw.R;
+
 
 public class SettingsActivity extends Activity
         implements SharedPreferences.OnSharedPreferenceChangeListener {
