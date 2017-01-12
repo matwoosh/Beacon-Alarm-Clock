@@ -49,23 +49,17 @@ public class BeaconAlarmManager {
     }
 
     public void startMonitoring() {
-        beaconManager.connect(new BeaconManager.ServiceReadyCallback() {
-            @Override
-            public void onServiceReady() {
-                for (Region region : regionsToMonitor) {
-                    beaconManager.startMonitoring(region);
-                }
+        beaconManager.connect(() -> {
+            for (Region region : regionsToMonitor) {
+                beaconManager.startMonitoring(region);
             }
         });
     }
 
     public void stopMonitoring() {
-        beaconManager.connect(new BeaconManager.ServiceReadyCallback() {
-            @Override
-            public void onServiceReady() {
-                for (Region region : regionsToMonitor) {
-                    beaconManager.stopMonitoring(region);
-                }
+        beaconManager.connect(() -> {
+            for (Region region : regionsToMonitor) {
+                beaconManager.stopMonitoring(region);
             }
         });
     }

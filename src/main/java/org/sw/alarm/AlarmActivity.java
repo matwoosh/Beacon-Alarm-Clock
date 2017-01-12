@@ -55,7 +55,7 @@ public class AlarmActivity extends Activity {
         });
 
         beaconAlarmManager = new BeaconAlarmManager(this);
-        beaconAlarmManager.addBeacon(new BeaconID("B9407F30-F5F8-466E-AFF9-25556B57FE6D", 1, 1));
+        beaconAlarmManager.addBeacon(new BeaconID("B9407F30-F5F8-466E-AFF9-25556B57FE6D", 55175, 50165));
         beaconAlarmManager.startMonitoring();
     }
 
@@ -78,7 +78,7 @@ public class AlarmActivity extends Activity {
     }
 
     public void stopAlarm() {
-        beaconAlarmManager.startMonitoring();
+        beaconAlarmManager.stopMonitoring();
         App.dispatch(new Action<>(Actions.Alarm.DISMISS));
         finish();
     }

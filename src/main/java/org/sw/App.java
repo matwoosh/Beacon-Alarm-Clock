@@ -32,7 +32,7 @@ public class App extends Application {
 
         // TODO: put your App ID and App Token here
         // You can get them by adding your app on https://cloud.estimote.com/#/apps
-        EstimoteSDK.initialize(getApplicationContext(), "<#App ID#>", "<#App Token#>");
+        EstimoteSDK.initialize(getApplicationContext(), "beacon-alarm-clock-89t", "d18d3103af1e8035668cd5cb2e19376b");
 
         // uncomment to enable debug-level logging
         // it's usually only a good idea when troubleshooting issues with the Estimote SDK
