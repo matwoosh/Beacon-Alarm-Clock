@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Beacon Alarm Clock</string>
-    <string name="leave_feedback">Leave feedback</string>
     <string name="settings">Settings</string>
     <string name="settings_ringtone_option">Ringtone</string>
     <string name="settings_snap_option">Snap to 5 min</string>

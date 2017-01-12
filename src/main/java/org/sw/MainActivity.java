@@ -1,5 +1,6 @@
 package org.sw;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Build;
@@ -16,6 +17,10 @@ import trikita.promote.Promote;
 
 public class MainActivity extends Activity {
 
+    private static final String[] INITIAL_PERMS={
+            Manifest.permission.ACCESS_FINE_LOCATION,
+    };
+
     @Override
     public void onCreate(Bundle b) {
         super.onCreate(b);
@@ -27,6 +32,11 @@ public class MainActivity extends Activity {
                 AlarmLayout.view();
             }
         });
+
+
+        if (Build.VERSION.SDK_INT >= 23)
+            requestPermissions(INITIAL_PERMS, 1340);
+
     }
 
     public void onResume() {

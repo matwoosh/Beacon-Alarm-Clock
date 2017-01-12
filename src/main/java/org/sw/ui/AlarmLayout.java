@@ -259,12 +259,6 @@ public class AlarmLayout {
         menu.setOnMenuItemClickListener(item -> {
             if (item.getItemId() == R.id.menu_settings) {
                 ((MainActivity) v.getContext()).openSettings();
-            } else if (item.getItemId() == R.id.menu_feedback) {
-                Context c = v.getContext();
-                Intent intent = new Intent(Intent.ACTION_SENDTO,
-                        Uri.fromParts("mailto", "adm.trikita@gmail.com", null));
-                intent.putExtra(Intent.EXTRA_SUBJECT, "Feedback about Talalarmo");
-                v.getContext().startActivity(Intent.createChooser(intent, c.getString(R.string.leave_feedback)));
             }
             return true;
         });
