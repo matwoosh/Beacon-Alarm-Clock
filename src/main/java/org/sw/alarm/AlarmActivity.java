@@ -24,6 +24,7 @@ import org.sw.App;
 import org.sw.R;
 import org.sw.estimote.BeaconID;
 import org.sw.estimote.BeaconAlarmManager;
+import org.sw.ui.ActiveAlarmLayout;
 import org.sw.ui.AlarmLayout;
 import org.sw.ui.Theme;
 
@@ -53,36 +54,18 @@ public class AlarmActivity extends Activity {
         setContentView(new RenderableView(this) {
             public void view() {
                 onClick(v -> stopAlarm());
-
-                Theme.materialIcon(() -> {
-                    size(FILL, FILL);
-                    text("\ue857"); // "alarm off"
-                    textColor(Theme.get(App.getState().settings().theme()).accentColor);
-                    textSize(dip(128));
-                    backgroundColor(Theme.get(App.getState().settings().theme()).backgroundColor);
-                });
-
-
-                textView(() -> {
-                    size(FILL, WRAP);
-                    gravity(CENTER_HORIZONTAL);
-                    backgroundColor(Theme.get(App.getState().settings().theme()).backgroundTranslucentColor);
-                    weight(1f);
-                    margin(dip(10), dip(10));
-                    typeface("fonts/Roboto-Light.ttf");
-                    textSize(dip(24));
-                    textColor(Theme.get(App.getState().settings().theme()).primaryTextColor);
-                    text(getString(R.string.phone_to_beacon));
-                });
-
+                ActiveAlarmLayout.view();
             }
         });
 
+        startBeaconAlarmManager();
+    }
+
+    private void startBeaconAlarmManager() {
         beaconAlarmManager = new BeaconAlarmManager(this);
         beaconAlarmManager.addBeacon(new BeaconID("B9407F30-F5F8-466E-AFF9-25556B57FE6D", 55175, 50165));
         beaconAlarmManager.startMonitoring();
     }
-
     @Override
     protected void onDestroy() {
         super.onDestroy();

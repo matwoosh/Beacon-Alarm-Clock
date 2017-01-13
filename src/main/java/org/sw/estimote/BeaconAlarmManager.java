@@ -18,7 +18,7 @@ import org.sw.alarm.AlarmActivity;
 
 public class BeaconAlarmManager {
 
-    private static final String TAG = "BeaconNotifications";
+    private static final String TAG = BeaconAlarmManager.class.getSimpleName();
 
     private BeaconManager beaconManager;
 
