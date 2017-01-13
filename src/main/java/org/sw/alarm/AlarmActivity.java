@@ -1,21 +1,30 @@
 package org.sw.alarm;
 
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PowerManager;
+import android.util.Log;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import trikita.anvil.Anvil;
 import trikita.anvil.RenderableView;
+
+import static trikita.anvil.BaseDSL.text;
 import static trikita.anvil.DSL.*;
 
 import trikita.jedux.Action;
 import org.sw.Actions;
 import org.sw.App;
+import org.sw.R;
 import org.sw.estimote.BeaconID;
 import org.sw.estimote.BeaconAlarmManager;
+import org.sw.ui.AlarmLayout;
 import org.sw.ui.Theme;
 
 
@@ -43,32 +52,35 @@ public class AlarmActivity extends Activity {
 
         setContentView(new RenderableView(this) {
             public void view() {
+                onClick(v -> stopAlarm());
+
                 Theme.materialIcon(() -> {
                     size(FILL, FILL);
                     text("\ue857"); // "alarm off"
                     textColor(Theme.get(App.getState().settings().theme()).accentColor);
                     textSize(dip(128));
                     backgroundColor(Theme.get(App.getState().settings().theme()).backgroundColor);
-                    //onClick(v -> stopAlarm()); to bylo domyslnie
                 });
+
+
+                textView(() -> {
+                    size(FILL, WRAP);
+                    gravity(CENTER_HORIZONTAL);
+                    backgroundColor(Theme.get(App.getState().settings().theme()).backgroundTranslucentColor);
+                    weight(1f);
+                    margin(dip(10), dip(10));
+                    typeface("fonts/Roboto-Light.ttf");
+                    textSize(dip(24));
+                    textColor(Theme.get(App.getState().settings().theme()).primaryTextColor);
+                    text(getString(R.string.phone_to_beacon));
+                });
+
             }
         });
 
         beaconAlarmManager = new BeaconAlarmManager(this);
         beaconAlarmManager.addBeacon(new BeaconID("B9407F30-F5F8-466E-AFF9-25556B57FE6D", 55175, 50165));
         beaconAlarmManager.startMonitoring();
-    }
-
-    @Override
-    protected void onUserLeaveHint() {
-        stopAlarm();
-        super.onUserLeaveHint();
-    }
-
-    @Override
-    public void onBackPressed() {
-        stopAlarm();
-        super.onBackPressed();
     }
 
     @Override
@@ -80,6 +92,11 @@ public class AlarmActivity extends Activity {
     public void stopAlarm() {
         beaconAlarmManager.stopMonitoring();
         App.dispatch(new Action<>(Actions.Alarm.DISMISS));
+
+        Intent i = new Intent(this, TemperatureActivity.class);
+        i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_TASK_ON_HOME);
+        startActivity(i);
+
         finish();
     }
 }
