@@ -1,9 +1,5 @@
 package org.sw.estimote;
 
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 
 import com.estimote.sdk.Beacon;
@@ -11,7 +7,6 @@ import com.estimote.sdk.BeaconManager;
 import com.estimote.sdk.Region;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import org.sw.alarm.AlarmActivity;

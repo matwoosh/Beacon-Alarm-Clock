@@ -53,7 +53,6 @@ public class AlarmActivity extends Activity {
 
         setContentView(new RenderableView(this) {
             public void view() {
-                onClick(v -> stopAlarm());
                 ActiveAlarmLayout.view();
             }
         });
