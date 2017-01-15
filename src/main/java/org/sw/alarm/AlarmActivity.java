@@ -1,6 +1,7 @@
 package org.sw.alarm;
 
 import android.app.Activity;
+import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
@@ -13,6 +14,7 @@ import trikita.anvil.RenderableView;
 
 
 import trikita.jedux.Action;
+
 import org.sw.Actions;
 import org.sw.App;
 import org.sw.estimote.BeaconID;
@@ -48,7 +50,7 @@ public class AlarmActivity extends Activity {
                 ActiveAlarmLayout.view();
             }
         });
-
+        BluetoothUtils.setBluetooth(true);
         startBeaconAlarmManager();
     }
 
@@ -57,6 +59,7 @@ public class AlarmActivity extends Activity {
         beaconAlarmManager.addBeacon(new BeaconID("B9407F30-F5F8-466E-AFF9-25556B57FE6D", 55175, 50165));
         beaconAlarmManager.startMonitoring();
     }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();

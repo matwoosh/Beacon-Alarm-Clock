@@ -57,6 +57,7 @@ public class TemperatureActivity extends Activity {
             }
         });
         beaconTemperatureManager.stopMonitoring();
+        BluetoothUtils.setBluetooth(false);
     }
 
 
