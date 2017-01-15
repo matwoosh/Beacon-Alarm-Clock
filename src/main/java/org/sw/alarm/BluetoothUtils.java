@@ -6,7 +6,10 @@ import android.bluetooth.BluetoothAdapter;
  * Created by Mateusz on 15/01/2017.
  */
 
-public class BluetoothUtils {
+public final class BluetoothUtils {
+
+    private BluetoothUtils() {
+    }
 
     public static boolean setBluetooth(boolean enable) {
         BluetoothAdapter bluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
