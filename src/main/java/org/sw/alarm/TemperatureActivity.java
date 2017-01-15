@@ -53,6 +53,7 @@ public class TemperatureActivity extends Activity {
         setContentView(new RenderableView(this) {
             public void view() {
                 onClick(v -> finish());
+                backgroundColor(Theme.get(App.getState().settings().theme()).backgroundColor);
                 TemperatureLayout.view(temperature);
             }
         });
