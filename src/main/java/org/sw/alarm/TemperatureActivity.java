@@ -3,10 +3,12 @@ package org.sw.alarm;
 import android.os.Build;
 import android.os.Bundle;
 import android.app.Activity;
+import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 
 import org.sw.App;
+import org.sw.estimote.BeaconTemperatureManager;
 import org.sw.ui.TemperatureLayout;
 import org.sw.ui.Theme;
 
@@ -16,6 +18,9 @@ import static trikita.anvil.DSL.backgroundColor;
 import static trikita.anvil.DSL.onClick;
 
 public class TemperatureActivity extends Activity {
+
+    private static final String TAG = TemperatureActivity.class.getSimpleName();;
+    private BeaconTemperatureManager beaconTemperatureManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,10 +36,27 @@ public class TemperatureActivity extends Activity {
         setContentView(new RenderableView(this) {
             public void view() {
                 backgroundColor(Theme.get(App.getState().settings().theme()).backgroundColor);
-                onClick(v -> finish());
-                TemperatureLayout.view("53 c");
+                TemperatureLayout.view("???");
             }
         });
+
+        startBeaconTemperatureManager();
+    }
+
+    private void startBeaconTemperatureManager() {
+        beaconTemperatureManager = new BeaconTemperatureManager(this);
+        beaconTemperatureManager.startMonitoring();
+    }
+
+    public void showTemperature(String temperature) {
+        Log.d(TAG, "temperature: " + temperature);
+        setContentView(new RenderableView(this) {
+            public void view() {
+                onClick(v -> finish());
+                TemperatureLayout.view(temperature);
+            }
+        });
+        beaconTemperatureManager.stopMonitoring();
     }
 
 

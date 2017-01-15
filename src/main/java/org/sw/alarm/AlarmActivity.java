@@ -1,31 +1,23 @@
 package org.sw.alarm;
 
 import android.app.Activity;
-import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PowerManager;
-import android.util.Log;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import trikita.anvil.Anvil;
 import trikita.anvil.RenderableView;
 
-import static trikita.anvil.BaseDSL.text;
-import static trikita.anvil.DSL.*;
 
 import trikita.jedux.Action;
 import org.sw.Actions;
 import org.sw.App;
-import org.sw.R;
 import org.sw.estimote.BeaconID;
 import org.sw.estimote.BeaconAlarmManager;
 import org.sw.ui.ActiveAlarmLayout;
-import org.sw.ui.AlarmLayout;
 import org.sw.ui.Theme;
 
 

@@ -5,6 +5,7 @@ import android.util.Log;
 import com.estimote.sdk.Beacon;
 import com.estimote.sdk.BeaconManager;
 import com.estimote.sdk.Region;
+import com.estimote.sdk.eddystone.Eddystone;
 
 import java.util.ArrayList;
 import java.util.List;
